@@ -1,0 +1,44 @@
+body{
+    margin:0px !important;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+}
+.header{
+    padding:60px;
+    background-color:black;
+    color:white;
+    width:100%;
+    margin:0px;
+    font-family: 'Orbitron', sans-serif;
+    font-size:60px;
+    text-align: center;
+}
+.container-fluid{padding:0px !important}
+
+input{
+    background-color:rgba(5, 14, 43, 0) !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+  }
+
+.card{
+    background-color:rgba(5, 14, 43, 0) !important;
+    border:white 1px solid !important;
+
+}
+
+.card-title{
+    color:rgb(255, 255, 255);
+    font-family: 'Bitter', serif;
+    font-size:30px;
+}
+label{color:white;}
+.expand{
+    display: inline-block;
+}
+.expandButton{
+    float:right;
+    background-color: rgba(10, 10, 92, 0);
+    border:black;
+}
