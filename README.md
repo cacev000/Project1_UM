@@ -12,13 +12,13 @@ This project is designed to display all the video game reviews found in other we
 
 Currently we are using 2 API sources that are providing the reviews and filter system that are implemented in the webapp. For the Frontend we are using Bootstrap, Font Awesome, among others. Finally for the Backend we are using firebase.
 
-###### APIs:
+##### APIs:
 
-1. IGN [API] (https://newsapi.org/s/ign-api)
+1. IGN <a href="https://newsapi.org/s/ign-api">API</a>
 
-2. Gamespot [API] (https://www.gamespot.com/api/documentation)
+2. Gamespot <a href="https://www.gamespot.com/api/documentation">API</a>
 
-###### Front-End:
+##### Front-End:
 
 1. Bootstrap
 
@@ -26,7 +26,7 @@ Currently we are using 2 API sources that are providing the reviews and filter s
 
 3. Google Fonts
 
-###### Back-End:
+##### Back-End:
 
 1. Firebase
 
@@ -44,6 +44,8 @@ Currently we are using 2 API sources that are providing the reviews and filter s
 
 3. Carlos Acevedo - https://github.com/cacev000
 
+---
+
 ### Live Demo
 
-Use the following link to view the [demo] (https://cacev000.github.io/Project1_UM/)
+Use the following link to view the <a href="https://cacev000.github.io/Project1_UM/">demo</a>  
