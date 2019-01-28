@@ -14,9 +14,11 @@ Currently we are using 2 API sources that are providing the reviews and filter s
 
 ##### APIs:
 
-1. IGN <a href="https://newsapi.org/s/ign-api">API</a>
+1. NY Times <a href="https://newsapi.org/s/ign-api">API</a>
 
-2. Gamespot <a href="https://www.gamespot.com/api/documentation">API</a>
+2. Google Books <a href="https://developers.google.com/books/docs/v1/getting_started">API</a>
+
+3. GoodReads <a href="https://www.goodreads.com/api">API</a>
 
 ##### Front-End:
 
