@@ -8,7 +8,7 @@ body{
     background-repeat:no-repeat;
     background-size:cover;
     background-attachment: fixed;
-    color:white !important;
+    color:gray !important;
     font-size:18px;
 }
 .header{
@@ -25,30 +25,57 @@ body{
 .container-fluid{padding:0px !important}
 
 input{
-    background-color:rgba(125, 125, 128, 0.851) !important;
-    color:white !important;
+    background-color:rgba(254, 254, 254, 1) !important;
+    color:gray !important;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white !important;
+    color: gray !important;
   }
 
 .card{
-    background-color:rgba(125, 125, 128, 0.851) !important;
-    border:white 1px solid !important;
+    background-color:rgba(254, 254, 254, 1)  !important;
+    border:gray 1px solid !important;
 
 }
 
 .card-title{
-    color:rgb(255, 255, 255);
+    color:green;
     font-family: 'Bitter', serif;
     font-size:30px;
 }
-label{color:white;}
+label{color:Green;}
 .expand{
     display: inline-block;
 }
 .expandButton{
     float:right;
-    background-color: rgba(10, 10, 92, 0);
+    background-color: green;
     border:black;
+}
+.expandButton:hover{
+background-color:green;
+}
+
+.card1{
+    margin:30px;
+    width:96%;
+    
+
+}
+.card2{
+    margin:30px;
+    width:45%;
+    float:left;
+    height:538px;
+}
+
+.body2{
+    height:538px;
+    overflow: scroll;
+}
+#dropdownMenuButton{
+    background-color: green;
+}
+#submit{
+    background-color: green !important;
 }
