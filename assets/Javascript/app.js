@@ -18,6 +18,7 @@ var database = firebase.database().ref();
 
 $('.genre').on('click',function(){
     $('#genre').val($(this).text());
+    $('.results').empty();
 })
 
 
@@ -59,7 +60,7 @@ $("#collapseExample").submit(function(event){
         var titleDiv = $("<div>");
         var descriptionDiv = $("<div>");
         var breakPoint = $("<br>");
-        var rankDiv = $("<div>");
+        var rankDiv = $("<div style=color:'green'>");
 
         titleDiv.text("Title: " +bookTitle);
         descriptionDiv.text("Plot: " + description);
