@@ -50,6 +50,26 @@ $("#collapseExample").submit(function(event){
     })
     .then(function(response){
     console.log(response);
+
+    var books = response.results.books;
+    for (i=0;i<books.length;i++){
+        var bookTitle   = books[i].title;
+        var description = books[i].description;
+        var rank = books[i].rank;
+        var titleDiv = $("<div>");
+        var descriptionDiv = $("<div>");
+        var breakPoint = $("<br>");
+        var rankDiv = $("<div>");
+
+        titleDiv.text("Title: " +bookTitle);
+        descriptionDiv.text("Plot: " + description);
+        rankDiv.text("Rank: " + rank);
+
+        $(".results").append(rankDiv);
+        $(".results").append(titleDiv);
+        $(".results").append(descriptionDiv);
+        $(".results").append(breakPoint);
+    }
     })
 })
 
