@@ -16,30 +16,40 @@ $(document).ready(function(){
 
 var database = firebase.database().ref();
 
+$('.genre').on('click',function(){
+    $('#genre').val($(this).text());
+})
+
 
 $("#collapseExample").submit(function(event){
     event.preventDefault();
-    var gameConsole = $("#console").val();
-    var category = $("#category").val();
-    var gameName = $("#nameOfGame").val();
+    var author = $("#author").val();
+    var title = $("#title").val();
+    var genre = $("#genre").val();
+    var date = $("#date").val();
 
     var gameInfo = {
-        gameConsole: gameConsole,
-        category: category,
-        gameName: gameName
+        author: author,
+        title: title
     }
     database.push(gameInfo);
 
-    $("#console").val('');
-    $("#catagory").val('');
-    $("#nameOfGame").val('');
+    $("#author").val('');
+    $("#title").val('');
 
+
+    var APIkey = 'mGD88UG4eNFO78Lsmyk7rr0RcQuAi9Km'
+    
+    // var queryURL = 'https://api.nytimes.com/svc/books/v3/reviews.json?author='+ author+ '&api-key=' + APIkey;
+    var queryURL = 'https://api.nytimes.com/svc/books/v3/lists/'+date+'/'+genre+'.json?api-key=' + APIkey;
+
+    console.log(queryURL);
     $.ajax({
         url: queryURL,
         method: "GET"
     })
     .then(function(response){
-        
+    console.log(response);
     })
 })
 
