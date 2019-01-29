@@ -43,10 +43,8 @@ $("#collapseExample").submit(function(event){
     
     var queryUrl = 'https://api.nytimes.com/svc/books/v3/lists/' + date + '/' + genre + '.json?api-key=' + APIkey;
 
-    var googleApiKey = 'AIzaSyBnkRzwse0uwbD6fX8tSss2tNwqW66RrNc';
-    var googleUrl = 'https://www.googleapis.com/books/v1/volumes?key='+ googleApiKey +'&q=isbn:';
-
-    console.log(queryUrl);
+    console.log(queryURL);
+    //NEW YORK TIMES
     $.ajax({
         url: queryUrl,
         method: "GET"
@@ -55,38 +53,56 @@ $("#collapseExample").submit(function(event){
     console.log(response);
 
     var books = response.results.books;
+    
     for (i=0;i<books.length;i++){
         var bookTitle   = books[i].title;
         var description = books[i].description;
         var rank = books[i].rank;
+        var isbn = books[i].primary_isbn13;
+        //NYT ISBN
+        
+        
+        var resultsDiv = $("<div>")
         var titleDiv = $("<div>");
         var descriptionDiv = $("<div>");
-        var breakPoint = $("<br>");
         var rankDiv = $("<div style=color:'green'>");
         
         titleDiv.text("Title: " +bookTitle);
         descriptionDiv.text("Plot: " + description);
-        rankDiv.text("Rank: " + rank);
-        
-        var isbn = books[i].primary_isbn13;
+        rankDiv.text("New York Times Rank: " + rank);
 
-        arrayOfBooks.push(books[i]);
+        //GOODREADS API
+        var goodReadsKey = 'wI29TEpdm6l8eoAgXMBtw';
+        var goodReadsURL = 'https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/review_counts.json?key='+goodReadsKey+'&isbns='+isbn; 
+        
         
         $.ajax({
-            url: googleUrl + isbn,
+            url: goodReadsURL,
             method: "GET"
         })
-        .then(function (response) {
-            console.log(arrayOfBooks);
-            console.log(response); 
-        });
+        .then(function(response2){
+        console.log(response2);
+        var bookRating = response2.books[0].average_rating;
+        var isbn2 = response2.books[0].isbn13;
+        var ratingDiv = $("<div>");
+        ratingDiv.text("GoodReads Score: "+bookRating);
+        var breakPoint = $("<br>");
+        $('.result'+isbn2).prepend(ratingDiv)
+        $('.result'+isbn2).append(breakPoint);
+        })
 
-        $(".results").append(rankDiv);
-        $(".results").append(titleDiv);
-        $(".results").append(descriptionDiv);
-        $(".results").append(breakPoint);
+        $(resultsDiv).append(rankDiv);
+        $(resultsDiv).append(titleDiv);
+        $(resultsDiv).append(descriptionDiv);
+       
+        $(resultsDiv).addClass("result"+isbn);
+        $(".results").append(resultsDiv);
+   
     }
+    
     })
+
+    
 })
 
 
