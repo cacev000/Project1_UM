@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+    var arrayOfBooks = [];
 
   // Initialize Firebase
   var config = {
@@ -29,11 +29,11 @@ $("#collapseExample").submit(function(event){
     var genre = $("#genre").val();
     var date = $("#date").val();
 
-    var gameInfo = {
-        author: author,
-        title: title
-    }
-    database.push(gameInfo);
+    // var gameInfo = {
+    //     author: author,
+    //     title: title
+    // }
+    // database.push(gameInfo);
 
     $("#author").val('');
     $("#title").val('');
@@ -41,13 +41,12 @@ $("#collapseExample").submit(function(event){
 
     var APIkey = 'mGD88UG4eNFO78Lsmyk7rr0RcQuAi9Km'
     
-    // var queryURL = 'https://api.nytimes.com/svc/books/v3/reviews.json?author='+ author+ '&api-key=' + APIkey;
-    var queryURL = 'https://api.nytimes.com/svc/books/v3/lists/'+date+'/'+genre+'.json?api-key=' + APIkey;
+    var queryUrl = 'https://api.nytimes.com/svc/books/v3/lists/' + date + '/' + genre + '.json?api-key=' + APIkey;
 
     console.log(queryURL);
     //NEW YORK TIMES
     $.ajax({
-        url: queryURL,
+        url: queryUrl,
         method: "GET"
     })
     .then(function(response){
@@ -67,7 +66,7 @@ $("#collapseExample").submit(function(event){
         var titleDiv = $("<div>");
         var descriptionDiv = $("<div>");
         var rankDiv = $("<div style=color:'green'>");
-
+        
         titleDiv.text("Title: " +bookTitle);
         descriptionDiv.text("Plot: " + description);
         rankDiv.text("New York Times Rank: " + rank);
