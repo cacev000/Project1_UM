@@ -16,28 +16,58 @@
         <div class="header">
             ONE STOP REVIEW
         </div>
-        <br>
-        <div class="card">
+        <br><br><br><br><br><br><br>
+        <div class="card card1">
             <div class="card-body">
               <h5 class="card-title expand">Start Search:</h5>
-              <button class="btn btn-primary expandButton" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <i class="fas fa-bars"></i>
-              </button>
-              <form class = "collapse" id="collapseExample">
+              
+              <form id="collapseExample">
+                  <div class="form-group">
+                      <label for="exampleInputGenre">Genre:</label>
+                      <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Genre List
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-item genre">Hardcover Fiction</div>
+                            <div class="dropdown-item genre">Hardcover Nonfiction</div>
+                            <div class="dropdown-item genre">Hardcover Business Books</div>
+                            <div class="dropdown-item genre">Hardcover Political Books</div>
+                            <div class="dropdown-item genre">Health</div>
+                            <div class="dropdown-item genre">Humor</div>
+                            <div class="dropdown-item genre">Race and Civil Rights</div>
+                            <div class="dropdown-item genre">Relationships</div>
+                            <div class="dropdown-item genre">Religion Spirituality and Faith</div>
+                            <div class="dropdown-item genre">Science</div>
+                            <div class="dropdown-item genre">Series Books</div>
+                            <div class="dropdown-item genre">Sports</div>
+                            <div class="dropdown-item genre">Travel</div>
+                          </div>
+                          <input type="console" class="form-control" id="genre">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputDate">Date: (YYYY-MM-DD)</label>
+                      <input type="category" class="form-control" id="date" placeholder="YYYY-MM-DD">
+                    </div>
                 <div class="form-group">
-                  <label for="exampleInputConsole">Console:</label>
-                  <input type="console" class="form-control" id="console" placeholder="Enter console">
+                  <label for="exampleInputAuthor">Author:</label>
+                  <input type="console" class="form-control" id="author" placeholder="Enter author">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputCategory">Category (genre):</label>
-                  <input type="category" class="form-control" id="category" placeholder="Adventure, action, sports, ...">
+                  <label for="exampleInputTitle">Title:</label>
+                  <input type="category" class="form-control" id="title" placeholder="Enter title">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputName">Name of the game:</label>
-                    <input type="nameOfGame" class="form-control" id="nameOfGame" placeholder="Call of Duty, FIFA, Zelda, ...">
-                  </div>
+               
                 <button type="submit" class="btn btn-primary" id="Submit">Submit</button>
               </form>
+            </div>
+          </div>
+
+          <div class="card card2">
+            <div class="card-body body2">
+              <h5 class="card-title expand">Results:</h5>
+              <div class="results"></div>
             </div>
           </div>
           <script src="assets/Javascript/app.js"></script>

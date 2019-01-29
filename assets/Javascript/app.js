@@ -16,34 +16,61 @@ $(document).ready(function(){
 
 var database = firebase.database().ref();
 
-    var googleApiKey = 'AIzaSyBnkRzwse0uwbD6fX8tSss2tNwqW66RrNc';
-
+$('.genre').on('click',function(){
+    $('#genre').val($(this).text());
+    $('.results').empty();
+})
 
 
 $("#collapseExample").submit(function(event){
     event.preventDefault();
-    var searchInput = $("#console").val();
-    // var category = $("#category").val();
-    // var gameName = $("#nameOfGame").val();
-    
-    // var gameInfo = {
-    //     gameConsole: gameConsole,
-    //     category: category,
-    //     gameName: gameName
-    // }
-    // database.push(gameInfo);
-    
-    var queryUrl = 'https://www.googleapis.com/books/v1/volumes?key=' + googleApiKey + '&q=' + searchInput;
-    $("#console").val('');
-    $("#catagory").val('');
-    $("#nameOfGame").val('');
+    var author = $("#author").val();
+    var title = $("#title").val();
+    var genre = $("#genre").val();
+    var date = $("#date").val();
 
+    var gameInfo = {
+        author: author,
+        title: title
+    }
+    database.push(gameInfo);
+
+    $("#author").val('');
+    $("#title").val('');
+
+
+    var APIkey = 'mGD88UG4eNFO78Lsmyk7rr0RcQuAi9Km'
+    
+    // var queryURL = 'https://api.nytimes.com/svc/books/v3/reviews.json?author='+ author+ '&api-key=' + APIkey;
+    var queryURL = 'https://api.nytimes.com/svc/books/v3/lists/'+date+'/'+genre+'.json?api-key=' + APIkey;
+
+    console.log(queryURL);
     $.ajax({
         url: queryUrl,
         method: "GET"
     })
     .then(function(response){
-        console.log(response);
+    console.log(response);
+
+    var books = response.results.books;
+    for (i=0;i<books.length;i++){
+        var bookTitle   = books[i].title;
+        var description = books[i].description;
+        var rank = books[i].rank;
+        var titleDiv = $("<div>");
+        var descriptionDiv = $("<div>");
+        var breakPoint = $("<br>");
+        var rankDiv = $("<div style=color:'green'>");
+
+        titleDiv.text("Title: " +bookTitle);
+        descriptionDiv.text("Plot: " + description);
+        rankDiv.text("Rank: " + rank);
+
+        $(".results").append(rankDiv);
+        $(".results").append(titleDiv);
+        $(".results").append(descriptionDiv);
+        $(".results").append(breakPoint);
+    }
     })
 })
 
