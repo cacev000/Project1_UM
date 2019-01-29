@@ -16,30 +16,34 @@ $(document).ready(function(){
 
 var database = firebase.database().ref();
 
+    var googleApiKey = 'AIzaSyBnkRzwse0uwbD6fX8tSss2tNwqW66RrNc';
+
+
 
 $("#collapseExample").submit(function(event){
     event.preventDefault();
-    var gameConsole = $("#console").val();
-    var category = $("#category").val();
-    var gameName = $("#nameOfGame").val();
-
-    var gameInfo = {
-        gameConsole: gameConsole,
-        category: category,
-        gameName: gameName
-    }
-    database.push(gameInfo);
-
+    var searchInput = $("#console").val();
+    // var category = $("#category").val();
+    // var gameName = $("#nameOfGame").val();
+    
+    // var gameInfo = {
+    //     gameConsole: gameConsole,
+    //     category: category,
+    //     gameName: gameName
+    // }
+    // database.push(gameInfo);
+    
+    var queryUrl = 'https://www.googleapis.com/books/v1/volumes?key=' + googleApiKey + '&q=' + searchInput;
     $("#console").val('');
     $("#catagory").val('');
     $("#nameOfGame").val('');
 
     $.ajax({
-        url: queryURL,
+        url: queryUrl,
         method: "GET"
     })
     .then(function(response){
-        
+        console.log(response);
     })
 })
 
