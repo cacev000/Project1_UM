@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+    var arrayOfBooks = [];
 
   // Initialize Firebase
   var config = {
@@ -29,11 +29,11 @@ $("#collapseExample").submit(function(event){
     var genre = $("#genre").val();
     var date = $("#date").val();
 
-    var gameInfo = {
-        author: author,
-        title: title
-    }
-    database.push(gameInfo);
+    // var gameInfo = {
+    //     author: author,
+    //     title: title
+    // }
+    // database.push(gameInfo);
 
     $("#author").val('');
     $("#title").val('');
@@ -41,10 +41,12 @@ $("#collapseExample").submit(function(event){
 
     var APIkey = 'mGD88UG4eNFO78Lsmyk7rr0RcQuAi9Km'
     
-    // var queryURL = 'https://api.nytimes.com/svc/books/v3/reviews.json?author='+ author+ '&api-key=' + APIkey;
-    var queryURL = 'https://api.nytimes.com/svc/books/v3/lists/'+date+'/'+genre+'.json?api-key=' + APIkey;
+    var queryUrl = 'https://api.nytimes.com/svc/books/v3/lists/' + date + '/' + genre + '.json?api-key=' + APIkey;
 
-    console.log(queryURL);
+    var googleApiKey = 'AIzaSyBnkRzwse0uwbD6fX8tSss2tNwqW66RrNc';
+    var googleUrl = 'https://www.googleapis.com/books/v1/volumes?key='+ googleApiKey +'&q=isbn:';
+
+    console.log(queryUrl);
     $.ajax({
         url: queryUrl,
         method: "GET"
@@ -61,10 +63,23 @@ $("#collapseExample").submit(function(event){
         var descriptionDiv = $("<div>");
         var breakPoint = $("<br>");
         var rankDiv = $("<div style=color:'green'>");
-
+        
         titleDiv.text("Title: " +bookTitle);
         descriptionDiv.text("Plot: " + description);
         rankDiv.text("Rank: " + rank);
+        
+        var isbn = books[i].primary_isbn13;
+
+        arrayOfBooks.push(books[i]);
+        
+        $.ajax({
+            url: googleUrl + isbn,
+            method: "GET"
+        })
+        .then(function (response) {
+            console.log(arrayOfBooks);
+            console.log(response); 
+        });
 
         $(".results").append(rankDiv);
         $(".results").append(titleDiv);
