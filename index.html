@@ -69,6 +69,73 @@
               <div class="results"></div>
             </div>
           </div>
+
+          <div class="card card3">
+            <div class="card-body body2">
+              <h5 class="card-title Bookname">Book Name:(Append actual name)</h5>
+              <div class="bookResults"></div>
+            </div>
+          </div>
+
+          <br>
+          <br>
+          <div class="card cardReview">
+            <div class="card-body bodyReview">
+              <h5 class="card-title reviewTitle">Leave us your own book review!</h5>
+              <form id="reviewForm">
+                  <div class="form-group">
+                      <label for="exampleInputGenre">User:</label>
+                          <input type="console" class="form-control" id="userReview" placeholder="Enter your username">
+                    </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputGenre">Genre:</label>
+                        <input type="console" class="form-control" id="genreReview" placeholder="Enter genre">
+                      </div>
+                  
+              <div class="form-group">
+                <label for="exampleInputAuthor">Author:</label>
+                <input type="console" class="form-control" id="authorReview" placeholder="Enter author">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputTitle">Book Title:</label>
+                <input type="category" class="form-control" id="titleReview" placeholder="Enter title">
+              </div>
+             
+              <div class="form-group">
+                  <label for="exampleInputComments">Comments:</label>
+                  <textarea id='comments'></textarea>
+              </div>
+
+              <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rating
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-item rating" value='1/5'>1 star</div>
+                    <div class="dropdown-item rating" value='2/5'>2 stars</div>
+                    <div class="dropdown-item rating" value='3/5'>3 stars</div>
+                    <div class="dropdown-item rating" value='4/5'>4 stars</div>
+                    <div class="dropdown-item rating" value='5/5'>5 stars</div>
+                  </div>
+                  <input type="console" class="form-control" id="ratingInput">
+                </div>
+            </div>
+            
+
+              <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
+            </form>
+            </div>
+          </div>
+
+          <div class="card card4">
+            <div class="card-body body2">
+              <h5 class="card-title Bookname">Reviews</h5>
+              <div class="reviewResults"></div>
+            </div>
+          </div>
+
+          <div class="footer">© copyrights reserved. Acevedo, Agbimson, Baduell.</div>
           <script src="assets/Javascript/app.js"></script>
     </body>
 </html>

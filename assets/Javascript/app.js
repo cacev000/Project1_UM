@@ -13,8 +13,73 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
-
 var database = firebase.database().ref();
+
+$('.rating').on('click',function(){
+    $('#ratingInput').val($(this).attr('value'));
+})
+
+$("#submitReview").on("click",function(event){
+
+    event.preventDefault();
+    console.log();
+    var userReview = $("#userReview").val().trim();
+    var genreReview = $("#genreReview").val().trim();
+    var authorReview = $("#authorReview").val().trim();
+    var titleReview = $("#titleReview").val().trim();
+    var comments=  $("#comments").val().trim();
+    var ratingInput = $("#ratingInput").val().trim();
+
+    var newReview = {
+        userReview: userReview,
+        genreReview: genreReview,
+        authorReview: authorReview,
+        titleReview: titleReview,
+        comments: comments,
+        ratingInput: ratingInput
+    }
+
+    database.push(newReview);
+
+})
+
+database.on("child_added",function(childSnapshot) {
+
+    var fireData = childSnapshot.val();
+
+    var user = $('<p>');
+    user.addClass('printUser');
+    user.text(fireData.userReview);
+
+    var genre = $('<p>');
+    genre.html("<b>Genre:<b> " + fireData.genreReview);
+
+    var author = $('<p>');
+    author.html("<b>Author:<b> " + fireData.authorReview);
+
+    var title = $('<p>');
+    title.html("<b>Book title:<b> " + fireData.titleReview);
+
+    var comment = $('<p>');
+    comment.html(fireData.comments);
+
+    var rating = $('<p>');
+    rating.html("<b>Rating:<b> " + fireData.ratingInput);
+
+    var card = $('<div>');
+    card.addClass("reviewerCard");
+
+    card.append(user);
+    card.append(title);
+    card.append(author);
+    card.append(genre);
+    card.append("<p style= font-size:'12px'><b>User review:<b><p>")
+    card.append(comment);
+    card.append(rating);
+
+    $('.reviewResults').append(card)
+
+})
 
 $('.genre').on('click',function(){
     $('#genre').val($(this).text());
@@ -43,7 +108,7 @@ $("#collapseExample").submit(function(event){
     
     var queryUrl = 'https://api.nytimes.com/svc/books/v3/lists/' + date + '/' + genre + '.json?api-key=' + APIkey;
 
-    console.log(queryURL);
+    console.log(queryUrl);
     //NEW YORK TIMES
     $.ajax({
         url: queryUrl,
