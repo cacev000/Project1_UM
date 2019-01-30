@@ -70,17 +70,11 @@ background-color:green;
     height:538px;
 }
 
-.card3{ 
-    float:right;
-    margin:30px 37px 30px 30px;
-    width:45%;
-    height:538px;
-}
 .card4{ 
     float:right;
     margin:30px 37px 30px 30px;
     width:45%;
-    height:580px;
+    height:730px;
 }
 .cardReview{
     float:left;
@@ -89,6 +83,7 @@ background-color:green;
     width:45%;
     height:730px;
     position: relative;
+    clear:both;
 }
 .body2{
     height:538px;
@@ -142,4 +137,9 @@ font-size:12px;}
     height:100px;
     width:100%;
     border:rgb(193, 192, 192) solid 1px;;
+}
+
+#previous{
+    height:300px;
+    overflow: scroll;
 }
