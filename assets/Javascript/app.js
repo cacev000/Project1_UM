@@ -19,6 +19,7 @@ $('.rating').on('click',function(){
     $('#ratingInput').val($(this).attr('value'));
 })
 
+
 $("#submitReview").on("click",function(event){
 
     event.preventDefault();
@@ -68,6 +69,7 @@ database.on("child_added",function(childSnapshot) {
 
     var card = $('<div>');
     card.addClass("reviewerCard");
+    card.addClass(fireData.authorReview);
 
     card.append(user);
     card.append(title);
@@ -76,6 +78,12 @@ database.on("child_added",function(childSnapshot) {
     card.append("<p style= font-size:'12px'><b>User review:<b><p>")
     card.append(comment);
     card.append(rating);
+
+    // var array = [];
+    // if(array.indexOf(fireData.authorReview)<0){
+    // $('#previous').append("<div class='dropdown-item author'>" + fireData.authorReview + "</div>");
+    // array.push(fireData.authorReview)
+    // }
 
     $('.reviewResults').append(card)
 
