@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script> FUMNAYA -->
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
   </head>
 
@@ -26,7 +27,7 @@
                   <div class="form-group">
                       <label for="exampleInputGenre">Genre:</label>
                       <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Genre List
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -102,7 +103,7 @@
                     </div>
 
                   <div class="form-group">
-                    <label for="exampleInputGenre">Genre:</label>
+                    <label for="exampleInputGenre">Book Genre:</label>
                         <input type="console" class="form-control" id="genreReview" placeholder="Enter genre">
                       </div>
                   
@@ -121,17 +122,18 @@
               </div>
 
               <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-secondary dropdown-toggle ropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Rating
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item rating" value='1/5'>1 star</div>
-                    <div class="dropdown-item rating" value='2/5'>2 stars</div>
-                    <div class="dropdown-item rating" value='3/5'>3 stars</div>
-                    <div class="dropdown-item rating" value='4/5'>4 stars</div>
-                    <div class="dropdown-item rating" value='5/5'>5 stars</div>
+                    <div class="dropdown-item rating" value='1'>1 star</div>
+                    <div class="dropdown-item rating" value='2'>2 stars</div>
+                    <div class="dropdown-item rating" value='3'>3 stars</div>
+                    <div class="dropdown-item rating" value='4'>4 stars</div>
+                    <div class="dropdown-item rating" value='5'>5 stars</div>
                   </div>
                   <input type="console" class="form-control" id="ratingInput">
+                  <div id="afterRating">out of 5.</div>
                 </div>
             </div>
             
@@ -143,15 +145,20 @@
 
           <div class="card card4">
             <div class="card-body body2">
-              <h5 class="card-title Bookname">Reviews</h5>
+              <div class='fixedReview'>
+              <h5 class="card-title Bookname">User Reviews</h5>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Genre List
+                <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Author Lookup
                 </button>
+                <div class="authorSelected"></div>
+                <button class="btn btn-secondary dropdownMenuButton" type="button" id="return">All Reviews</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id='previous'> 
-                    <div class="dropdown-item rating">Hello</div>
                 </div>
               </div>
+              <br>
+            </div>
+            <br><br><br><br><br><br>
               <div class="reviewResults"></div>
             </div>
           </div>
