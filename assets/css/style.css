@@ -53,7 +53,7 @@ label{color:Green;}
     background-color: green;
     border:black;
 }
-.expandButton:hover{
+.dropdownMenuButton:hover{
 background-color:green;
 }
 
@@ -65,7 +65,7 @@ background-color:green;
 }
 .card2{
     margin:30px;
-    width:45%;
+    width:95%;
     float:left;
     height:538px;
 }
@@ -74,14 +74,15 @@ background-color:green;
     float:right;
     margin:30px 37px 30px 30px;
     width:45%;
-    height:730px;
+    height:700px;
+    position:relative;
 }
 .cardReview{
     float:left;
     margin:30px;
     margin-bottom: 100px;
     width:45%;
-    height:730px;
+    height:700px;
     position: relative;
     clear:both;
 }
@@ -89,9 +90,14 @@ background-color:green;
     height:538px;
     overflow: scroll;
 }
-#dropdownMenuButton{
+.dropdownMenuButton{
     background-color: green;
 }
+
+.dropdown-toggle{
+    background-color: green !important;
+}
+
 #submit, #submitReview{
     background-color: green !important;
 }
@@ -116,21 +122,24 @@ html{position: relative;}
 
 .reviewerCard{
     border:gray 1px solid;
-    margin:20px;
+    margin:20px 0px 20px 0px;
+   
 }
 p{
     margin:0px;
-font-size:12px;}
+font-size:15px;}
 
-.printUser{
+.printTitle{
     font-size:25px;
     color:green;
     font-weight: bold;
+    text-align:center;
 }
 
 #ratingInput{ 
-    width:90px;
+    width:40px;
     text-align: center;
+    display:inline;
 }
 
 #comments{ 
@@ -140,9 +149,11 @@ font-size:12px;}
 }
 
 #previous{
-    height:300px;
+    height:auto;
+    max-height:300px;
     overflow: scroll;
 }
+
 
 .form-group {
     display: inline-block;
@@ -150,4 +161,33 @@ font-size:12px;}
 
 .card-body{
     height: 200px;
+}
+.authorSelected{
+    display:inline-block;
+    font-size:20px;
+    font-weight:bold;
+}
+
+#return{
+    display: block;
+    margin-top:10px;
+    width:151px;
+}
+.fixedReview{
+position: absolute;
+top:0px;
+background:white;
+width:94.5%;
+padding-top: 15px;
+border-bottom:green solid 5px;
+
+}
+
+#afterRating{
+    display:inline;
+    font-size:17px;
+}
+.full-result-style {
+    width: 90%;
+    height: 85%;
 }
