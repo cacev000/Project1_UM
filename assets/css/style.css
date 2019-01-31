@@ -154,6 +154,14 @@ font-size:15px;}
     overflow: scroll;
 }
 
+
+.form-group {
+    display: inline-block;
+}
+
+.card-body{
+    height: 200px;
+}
 .authorSelected{
     display:inline-block;
     font-size:20px;
@@ -182,5 +190,4 @@ border-bottom:green solid 5px;
 .full-result-style {
     width: 90%;
     height: 85%;
-
 }
