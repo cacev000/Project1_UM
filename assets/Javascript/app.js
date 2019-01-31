@@ -135,7 +135,6 @@ $("#collapseExample").submit(function(event){
     
     for (i=0;i<books.length;i++){
         var bookTitle = books[i].title;
-        var description = books[i].description;
         var rank = books[i].rank;
         var isbn = books[i].primary_isbn13;
         //NYT ISBN
