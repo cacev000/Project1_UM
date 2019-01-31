@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     var books;
+    var arrayOfBooks = [];
 
   // Initialize Firebase FUMNAYA
 //   var config = {
@@ -56,11 +57,13 @@ for (i=0;i<arrayOfBooks.length;i++){
 $("#return").on("click",function(){
     $('.reviewerCard').show();
 })
-
+$(".card2").hide();
+$("#inputAuthor").hide();
+$("#inputTitle").hide();
 $("#submitReview").on("click",function(event){
 
     event.preventDefault();
-    
+
 
     var userReview = $("#userReview").val().trim();
     var genreReview = $("#genreReview").val().trim();
@@ -137,7 +140,7 @@ database.on("child_added",function(childSnapshot) {
     }
     
 
-    $('.reviewResults').append(card)
+    $('.reviewResults').prepend(card)
 
 })
 
@@ -149,6 +152,7 @@ $('.genre').on('click',function(){
 
 $("#collapseExample").submit(function(event){
     event.preventDefault();
+    $(".card2").show();
     var author = $("#author").val();
     var title = $("#title").val();
     var genre = $("#genre").val();
@@ -184,6 +188,7 @@ $("#collapseExample").submit(function(event){
     
     for (i=0;i<books.length;i++){
         var bookTitle = books[i].title;
+        var bookAuthor = books[i].author;
         var rank = books[i].rank;
         var isbn = books[i].primary_isbn13;
         //NYT ISBN
@@ -196,11 +201,12 @@ $("#collapseExample").submit(function(event){
         var cardBody = $('<div class="card-body"></div>');
 
         var titleDiv = $("<div>");
-        // var descriptionDiv = $("<div>");
+        var authorDiv = $("<div>");
         var rankDiv = $("<div style=color:'green'>");
 
         titleDiv.attr('class', 'card-title');
-        titleDiv.text("Title: " + bookTitle);
+        titleDiv.text(bookTitle);
+        authorDiv.html("<strong>"+bookAuthor);
         // descriptionDiv.attr('class', 'card-text');
         // descriptionDiv.text("Plot: " + description);
         rankDiv.attr('class', 'nyRank' + isbn);
@@ -223,11 +229,12 @@ $("#collapseExample").submit(function(event){
                 getCardElement.attr('data-goodreads', bookRating);
                 var ratingDiv = $("<div>");
                 ratingDiv.text("GoodReads Score: " + bookRating);
-                $('.nyRank' + isbn2).prepend(ratingDiv);
+                $('.nyRank' + isbn2).append(ratingDiv);
             });
 
 
         cardBody.append(titleDiv);
+        cardBody.append(authorDiv);
         cardBody.append(rankDiv);
         cardElement.append(cardBody);
 

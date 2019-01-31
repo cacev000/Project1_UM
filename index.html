@@ -21,7 +21,7 @@
 
         <div class="card card1">
             <div class="card-body">
-              <h5 class="card-title expand">Start Search:</h5>
+              <h5 class="card-title expand">Search for Top-Book Rankings by Date:</h5>
               
               <form id="collapseExample">
                   <div class="form-group mr-2">
@@ -48,15 +48,15 @@
                         </div>
                     </div>
                     <div class="form-group mr-2" >
-                      <label for="exampleInputDate">Date: YYYY-MM-DD (since 2015)</label>
+                      <label for="exampleInputDate">DD-MM-YYYY (since 2015)</label>
                       <input type="date" class="form-control" id="date" placeholder="YYYY-MM-DD">
                     </div>
-                <div class="form-group mr-2">
+                <div class="form-group mr-2" id ="inputAuthor">
                   <label for="exampleInputAuthor">Author:</label>
                   <input type="console" class="form-control" id="author" placeholder="Enter author">
                 </div>
-                <div class="form-group mr-2">
-                  <label for="exampleInputTitle">Title:</label>
+                <div class="form-group mr-2" id="inputTitle">
+                  <label for="exampleInputTitle" >Title:</label>
                   <input type="category" class="form-control" id="title" placeholder="Enter title">
                 </div>
                
@@ -97,26 +97,26 @@
             <div class="card-body bodyReview">
               <h5 class="card-title reviewTitle">Leave us your own book review!</h5>
               <form id="reviewForm">
-                  <div class="form-group">
+                  <div class="form-group2">
                       <label for="exampleInputGenre">User:</label>
                           <input type="console" class="form-control" id="userReview" placeholder="Enter your username">
                     </div>
 
-                  <div class="form-group">
+                  <div class="form-group2">
                     <label for="exampleInputGenre">Book Genre:</label>
                         <input type="console" class="form-control" id="genreReview" placeholder="Enter genre">
                       </div>
                   
-              <div class="form-group">
+              <div class="form-group2">
                 <label for="exampleInputAuthor">Author:</label>
                 <input type="console" class="form-control" id="authorReview" placeholder="Enter author">
               </div>
-              <div class="form-group">
+              <div class="form-group2">
                 <label for="exampleInputTitle">Book Title:</label>
                 <input type="category" class="form-control" id="titleReview" placeholder="Enter title">
               </div>
              
-              <div class="form-group">
+              <div class="form-group2">
                   <label for="exampleInputComments">Comments:</label>
                   <textarea id='comments'></textarea>
               </div>
