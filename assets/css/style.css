@@ -143,3 +143,11 @@ font-size:12px;}
     height:300px;
     overflow: scroll;
 }
+
+.form-group {
+    display: inline-block;
+}
+
+.card-body{
+    height: 200px;
+}
