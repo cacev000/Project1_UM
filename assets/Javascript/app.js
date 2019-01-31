@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var arrayOfBooks = [];
+    var books;
 
   // Initialize Firebase FUMNAYA
 //   var config = {
@@ -25,6 +25,9 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 
 var database = firebase.database().ref();
+
+    var fullDataCard = $('.fullInfoResult');
+    fullDataCard.hide();
 
 $('.rating').on('click',function(){
     $('#ratingInput').val($(this).attr('value'));
@@ -174,58 +177,100 @@ $("#collapseExample").submit(function(event){
     .then(function(response){
     console.log(response);
 
-    var books = response.results.books;
+        books = response.results.books;
+        localStorage.setItem('books', JSON.stringify(books));
+
+        var rowElement = $('<div class="row justify-content-between"></div>');
     
     for (i=0;i<books.length;i++){
-        var bookTitle   = books[i].title;
-        var description = books[i].description;
+        var bookTitle = books[i].title;
         var rank = books[i].rank;
         var isbn = books[i].primary_isbn13;
         //NYT ISBN
-        
-        
-        var resultsDiv = $("<div>")
+
+        var spaceElement = $('<div class="col-md-1"></div>');
+
+        var cardElement = $('<div class="card cardResults col-xs-12 col-md-4 col-lg-4 ml-2 mb-5 show-all"></div>');
+        cardElement.attr('id', 'result' + isbn);
+        cardElement.attr('data-isbn', isbn);
+        var cardBody = $('<div class="card-body"></div>');
+
         var titleDiv = $("<div>");
-        var descriptionDiv = $("<div>");
+        // var descriptionDiv = $("<div>");
         var rankDiv = $("<div style=color:'green'>");
-        
-        titleDiv.text("Title: " +bookTitle);
-        descriptionDiv.text("Plot: " + description);
+
+        titleDiv.attr('class', 'card-title');
+        titleDiv.text("Title: " + bookTitle);
+        // descriptionDiv.attr('class', 'card-text');
+        // descriptionDiv.text("Plot: " + description);
+        rankDiv.attr('class', 'nyRank' + isbn);
         rankDiv.text("New York Times Rank: " + rank);
 
         //GOODREADS API
         var goodReadsKey = 'wI29TEpdm6l8eoAgXMBtw';
-        var goodReadsURL = 'https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/review_counts.json?key='+goodReadsKey+'&isbns='+isbn; 
-        
-        
+        var goodReadsURL = 'https://cors-anywhere.herokuapp.com/https://www.goodreads.com/book/review_counts.json?key=' + goodReadsKey + '&isbns=' + isbn;
+
+
         $.ajax({
             url: goodReadsURL,
             method: "GET"
         })
-        .then(function(response2){
-        console.log(response2);
-        var bookRating = response2.books[0].average_rating;
-        var isbn2 = response2.books[0].isbn13;
-        var ratingDiv = $("<div>");
-        ratingDiv.text("GoodReads Score: "+bookRating);
-        var breakPoint = $("<br>");
-        $('.result'+isbn2).prepend(ratingDiv)
-        $('.result'+isbn2).append(breakPoint);
-        })
+            .then(function (response2) {
+                // console.log(response2);
+                var bookRating = response2.books[0].average_rating;
+                var isbn2 = response2.books[0].isbn13;
+                var getCardElement = $('#result' + isbn2);
+                getCardElement.attr('data-goodreads', bookRating);
+                var ratingDiv = $("<div>");
+                ratingDiv.text("GoodReads Score: " + bookRating);
+                $('.nyRank' + isbn2).prepend(ratingDiv);
+            });
 
-        $(resultsDiv).append(rankDiv);
-        $(resultsDiv).append(titleDiv);
-        $(resultsDiv).append(descriptionDiv);
-       
-        $(resultsDiv).addClass("result"+isbn);
-        $(".results").append(resultsDiv);
-   
+
+        cardBody.append(titleDiv);
+        cardBody.append(rankDiv);
+        cardElement.append(cardBody);
+
+        rowElement.append(spaceElement);
+        rowElement.append(cardElement);
+        rowElement.append(spaceElement);
+        
     }
+    $(".results").append(rowElement);
     
     })
 
     
 })
 
+    $('div').on('click', '.cardResults', function () {
+        var elementSelected = $(this);
+        var selectedIsbn = elementSelected.attr('data-isbn');
+        var goodReadRank = elementSelected.attr('data-goodreads');
+
+        var retrievedBooks = JSON.parse(localStorage.getItem('books'));
+
+        retrievedBooks.forEach(function (currentBook) {
+            if (currentBook.primary_isbn13 === selectedIsbn) {
+
+
+                $('#oneCardTitle').text(currentBook.title);
+                $('#oneCardGoodReadsRank').text('GoodReads Score: ' + goodReadRank);
+                $('#oneCardNyTimesRank').text('New York Times Rank: ' + currentBook.rank);
+                $('#oneCardDescription').text('Plot: ' + currentBook.description);
+
+
+                fullDataCard.show();
+
+
+                $('.results').hide();
+            }
+        });
+    });
+
+    $('#showAllResults').on('click', function () {
+        fullDataCard.hide();
+        $('.results').show();
+    });
 
 })

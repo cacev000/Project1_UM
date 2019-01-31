@@ -65,7 +65,7 @@ background-color:green;
 }
 .card2{
     margin:30px;
-    width:45%;
+    width:95%;
     float:left;
     height:538px;
 }
@@ -178,4 +178,9 @@ border-bottom:green solid 5px;
 #afterRating{
     display:inline;
     font-size:17px;
+}
+.full-result-style {
+    width: 90%;
+    height: 85%;
+
 }
