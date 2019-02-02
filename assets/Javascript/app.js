@@ -167,6 +167,7 @@ $(document).ready(function () {
             url: queryUrl,
             method: "GET"
         }).then(function (response) {
+            console.log(response);
             books = response.results.books;
             localStorage.setItem('books', JSON.stringify(books));
 
@@ -243,7 +244,9 @@ $(document).ready(function () {
                 $('#oneCardGoodReadsRank').text('GoodReads Score: ' + goodReadRank);
                 $('#oneCardNyTimesRank').text('New York Times Rank: ' + currentBook.rank);
                 $('#oneCardDescription').text('Plot: ' + currentBook.description);
-
+                $("#amazonLink").attr("href",currentBook.amazon_product_url);
+                $("#amazonLink").text('Buy on amazon.');
+                $("#bookImage").attr('src',currentBook.book_image);
                 fullDataCard.show();
                 $('.results').hide();
             }
