@@ -158,6 +158,10 @@ font-size:15px;}
 .form-group {
     display: inline-block;
 }
+.form-group2 {
+    display: block;
+    margin-bottom:15px;
+}
 
 .card-body{
     height: 200px;
