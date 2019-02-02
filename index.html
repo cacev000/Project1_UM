@@ -14,62 +14,58 @@
   </head>
 
     <body class='container-fluid'>
-        <div class="header">
+        <div class="header row">
             ONE STOP REVIEW
         </div>
-        <br><br><br><br><br><br><br>
 
-        <div class="card card1">
-            <div class="card-body">
+        <!-- SEEARCH Card -->
+        <div class="row justify-content-center mt-3 mb-3">
+          <div class="card col-xs-11 col-md-11 col-sm-11 col-lg-11">
+            <div class="card-header row">
               <h5 class="card-title expand">Search for Top-Book Rankings by Date:</h5>
-              
-              <form id="collapseExample">
-                  <div class="form-group mr-2">
-                      <label for="exampleInputGenre">Genre:</label>
-                      <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Genre List
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <div class="dropdown-item genre">Hardcover Fiction</div>
-                            <div class="dropdown-item genre">Hardcover Nonfiction</div>
-                            <div class="dropdown-item genre">Hardcover Political Books</div>
-                            <div class="dropdown-item genre">Health</div>
-                            <div class="dropdown-item genre">Humor</div>
-                            <div class="dropdown-item genre">Race and Civil Rights</div>
-                            <div class="dropdown-item genre">Relationships</div>
-                            <div class="dropdown-item genre">Religion Spirituality and Faith</div>
-                            <div class="dropdown-item genre">Science</div>
-                            <div class="dropdown-item genre">Series Books</div>
-                            <div class="dropdown-item genre">Sports</div>
-                            <div class="dropdown-item genre">Travel</div>
-                          </div>
-                          <input type="console" class="form-control" id="genre">
-                        </div>
-                    </div>
-                    <div class="form-group mr-2" >
-                      <label for="exampleInputDate">DD-MM-YYYY (since 2015)</label>
-                      <input type="date" class="form-control" id="date" placeholder="YYYY-MM-DD">
-                    </div>
-                <div class="form-group mr-2" id ="inputAuthor">
-                  <label for="exampleInputAuthor">Author:</label>
-                  <input type="console" class="form-control" id="author" placeholder="Enter author">
+            </div>
+            <div class="card-body">
+                <div class="row mb-2">
+                  <label for="exampleInputGenre" class="col-xs-12 col-sm-2 col-md-2 col-lg-2">Genre:</label>
+                  <button class="btn btn-secondary dropdown-toggle dropdownMenuButton col-xs-12 col-sm-2 col-md-2 col-lg-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Genre List
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-item genre">Hardcover Fiction</div>
+                    <div class="dropdown-item genre">Hardcover Nonfiction</div>
+                    <div class="dropdown-item genre">Hardcover Political Books</div>
+                    <div class="dropdown-item genre">Health</div>
+                    <div class="dropdown-item genre">Humor</div>
+                    <div class="dropdown-item genre">Race and Civil Rights</div>
+                    <div class="dropdown-item genre">Relationships</div>
+                    <div class="dropdown-item genre">Religion Spirituality and Faith</div>
+                    <div class="dropdown-item genre">Science</div>
+                    <div class="dropdown-item genre">Series Books</div>
+                    <div class="dropdown-item genre">Sports</div>
+                    <div class="dropdown-item genre">Travel</div>
+                  </div>
+                  <label class="col-xs-12 col-sm-4 col-md-4 col-lg-4" for="exampleInputDate">DD-MM-YYYY (since 2015)</label>
+                  <!-- <label class="col-xs-12 col-sm-4 col-md-4 col-lg-4" for="exampleInputAuthor">Author:</label>
+                  <label class="col-xs-12 col-sm-4 col-md-4 col-lg-4" for="exampleInputTitle" >Title:</label> -->
                 </div>
-                <div class="form-group mr-2" id="inputTitle">
-                  <label for="exampleInputTitle" >Title:</label>
-                  <input type="category" class="form-control" id="title" placeholder="Enter title">
+                <div class="row">
+                  <input type="console" class="form-control col-xs-12 col-sm-4 col-md-4 col-lg-4 mr-2" id="genre">
+                  <input type="date" class="form-control col-xs-12 col-sm-4 col-md-4 col-lg-4 mr-2" id="date" placeholder="YYYY-MM-DD">
+                  <!-- <input type="console" class="form-control col-xs-12 col-sm-4 col-md-4 col-lg-4" id="author" placeholder="Enter author">
+                  <input type="category" class="form-control col-xs-12 col-sm-4 col-md-4 col-lg-4" id="title" placeholder="Enter title"> -->
+                  <button type="submit" class="btn col-xs-12 col-sm-4 col-md-4 col-lg-2" id="searchDate">Submit</button>
                 </div>
-               
-                <button type="submit" class="btn btn-primary" id="Submit">Submit</button>
-              </form>
             </div>
           </div>
+        </div>
 
-          <div class="card card2">
-            <div class="card-body body2">
+        <!-- RESULT for Search input -->
+        <div class="row justify-content-center mb-3">
+          <div class="card col-xs-11 col-md-11 col-sm-11 col-lg-11">
+            <div class="card-body">
               <h5 class="card-title expand">Results:</h5>
               <div class="results"></div>
-
+  
               <div class="row fullInfoResult justify-content-center">
                 <div class="card full-result-style">
                     <!-- <img class="card-img-top" src=".../100px180/" alt="Card image cap"> -->
@@ -77,9 +73,10 @@
                       <h2 class="card-title" id="oneCardTitle"></h2>
                     </div>
                     <div class="card-body">
-                      <h5 id="oneCardGoodReadsRank"></h5>
-                      <h5 id="oneCardNyTimesRank"></h5>
-                      <h6 class="card-text" id="oneCardDescription"></h6>
+                      <strong><h3 id="bookAuthor"></h3></strong>
+                      <h4 id="oneCardNyTimesRank"></h4>
+                      <h4 id="oneCardGoodReadsRank"></h4>
+                      <h5 class="card-text" id="oneCardDescription"></h5>
                     </div>
                     <div class="card-footer">
                       <div class="row justify-content-end">
@@ -90,80 +87,88 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <br>
-          <br>
-          <div class="card cardReview">
-            <div class="card-body bodyReview">
+        <!-- Add User review and See Users Review -->
+        <div class="row justify-content-center mb-5">
+          <!-- Form to Add user REVIEWS -->
+          <div class="card col-xs-11 col-sm-11 col-md-5">
+            <div class="card-header row">
               <h5 class="card-title reviewTitle">Leave us your own book review!</h5>
-              <form id="reviewForm">
-                  <div class="form-group2">
-                      <label for="exampleInputGenre">User:</label>
-                          <input type="console" class="form-control" id="userReview" placeholder="Enter your username">
-                    </div>
+            </div>
+            <div class="card-body">
+              <div class="row mb-3">
+                <label for="exampleInputGenre">User:</label>
+                <input type="console" class="form-control" id="userReview" placeholder="Enter your username">
+              </div>
 
-                  <div class="form-group2">
-                    <label for="exampleInputGenre">Book Genre:</label>
-                        <input type="console" class="form-control" id="genreReview" placeholder="Enter genre">
-                      </div>
-                  
-              <div class="form-group2">
+              <div class="row mb-3">
+                <label for="exampleInputGenre">Book Genre:</label>
+                <input type="console" class="form-control" id="genreReview" placeholder="Enter genre">
+              </div>
+                
+              <div class="row mb-3">
                 <label for="exampleInputAuthor">Author:</label>
                 <input type="console" class="form-control" id="authorReview" placeholder="Enter author">
               </div>
-              <div class="form-group2">
+              <div class="row mb-3">
                 <label for="exampleInputTitle">Book Title:</label>
                 <input type="category" class="form-control" id="titleReview" placeholder="Enter title">
               </div>
-             
-              <div class="form-group2">
+            
+              <div class="row mb-3">
                   <label for="exampleInputComments">Comments:</label>
                   <textarea id='comments'></textarea>
               </div>
 
-              <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle ropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Rating
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item rating" value='1'>1 star</div>
-                    <div class="dropdown-item rating" value='2'>2 stars</div>
-                    <div class="dropdown-item rating" value='3'>3 stars</div>
-                    <div class="dropdown-item rating" value='4'>4 stars</div>
-                    <div class="dropdown-item rating" value='5'>5 stars</div>
-                  </div>
-                  <input type="console" class="form-control" id="ratingInput">
-                  <div id="afterRating">out of 5.</div>
+              <div class="dropdown row mb-3">
+                <button class="btn btn-secondary dropdown-toggle dropdownMenuButton mr-2 col-xs-4 col-sm-4 col-md-4 col-lg-4" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Rating
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="dropdown-item rating" value='1'>1 star</div>
+                  <div class="dropdown-item rating" value='2'>2 stars</div>
+                  <div class="dropdown-item rating" value='3'>3 stars</div>
+                  <div class="dropdown-item rating" value='4'>4 stars</div>
+                  <div class="dropdown-item rating" value='5'>5 stars</div>
                 </div>
-            </div>
-            
+                <input type="console" class="form-control col-xs-3 col-sm-3 col-md-3 col-lg-3" id="ratingInput">
+                <div id="afterRating" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">out of 5.</div>
+              </div>
 
               <button type="submit" class="btn btn-primary" id="submitReview">Submit</button>
-            </form>
             </div>
           </div>
 
-          <div class="card card4">
-            <div class="card-body body2">
-              <div class='fixedReview'>
-              <h5 class="card-title Bookname">User Reviews</h5>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="col-xs-12 col-sm-12 col-md-1 mb-3"></div>
+
+          <!-- USER'S reviews -->
+          <div class="card col-xs-11 col-sm-11 col-md-5">
+            <div class="card-header row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h5 class="card-title Bookname">User Reviews</h5>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row">
+                <button class="btn btn-secondary dropdown-toggle dropdownMenuButton col-xs-12 col-sm-12 col-md-5 col-lg-5 mr-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Author Lookup
                 </button>
                 <div class="authorSelected"></div>
-                <button class="btn btn-secondary dropdownMenuButton" type="button" id="return">All Reviews</button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id='previous'> 
-                </div>
+                <button class="btn btn-secondary dropdownMenuButton col-xs-12 col-sm-12 col-md-5 col-lg-5" type="button" id="return">All Reviews</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id='previous'> </div>
               </div>
-              <br>
             </div>
-            <br><br><br><br><br><br>
-              <div class="reviewResults"></div>
+            <div class="card-body body2">
+              <!-- div to repeat all the users review -->
+              <div class="row reviewResults"></div>
             </div>
           </div>
+        </div>
 
-          <div class="footer">© copyrights reserved. Acevedo, Agbimson, Baduell.</div>
-          <script src="assets/Javascript/app.js"></script>
+        <!-- FOOTER -->
+        <div class="row footer">
+          © copyrights reserved. Acevedo, Agbimson, Baduell.
+        </div>
+
+        <script src="assets/Javascript/app.js"></script>
     </body>
 </html>
