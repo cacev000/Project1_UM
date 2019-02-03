@@ -171,3 +171,11 @@ border-bottom:green solid 5px;
     width: 90%;
     height: 85%;
 }
+
+#amazonLink{
+    display: inline;
+    font-size:20px;
+}
+#bookImage{
+    display:block;
+}
