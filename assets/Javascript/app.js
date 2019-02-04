@@ -41,7 +41,7 @@ $(document).ready(function () {
     }
 
     $(document).on('click', '.authorDropdown', function () {
-        $('.reviewerCard').show();
+        $('.card').show();
         var thisValue = $(this).attr('data-author');
         $(".authorSelected").empty();
         $(".authorSelected").text('Author Selected: ' + $(this).text());
@@ -56,7 +56,7 @@ $(document).ready(function () {
     })
 
     $("#return").on("click", function () {
-        $('.reviewerCard').show();
+        $('.card').show();
     });
     $(".card2").hide();
     // $("#inputAuthor").hide();
@@ -121,7 +121,7 @@ $(document).ready(function () {
         var author2 = fireData.authorReview
         
         var authorConc = concatenate(author2);
-        cardBodyElement.addClass(authorConc);
+        cardElement.addClass(authorConc);
         
         cardHeaderElement.append(title);
 
